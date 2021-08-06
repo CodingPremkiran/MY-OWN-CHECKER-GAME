@@ -96,13 +96,13 @@ function draw() {
       gameState = "play";
     }
   }
-  createEdgeSprites();
+  var edges= createEdgeSprites();
   
   if(gameState == "play")
   {
     paddle.x=World.mouseX;
   }
-  if (ball.isTouching(bottomEdge) || score == 16) {
+  if (ball.isTouching(edges) || score == 16) {
     gameState = "end";
   }
   
@@ -121,9 +121,9 @@ function draw() {
   //Moving the ball on pressing enter key
   
   //Making the ball bounceOff the paddle and three sides of canvas
-  ball.bounceOff(rightEdge);
-  ball.bounceOff(leftEdge);
-  ball.bounceOff(topEdge);
+  ball.bounceOff(edges);
+ // ball.bounceOff(leftEdge);
+ // ball.bounceOff(topEdge);
   ball.bounceOff(paddle);
 
   //Moving the paddle with mouse along the x-axis
